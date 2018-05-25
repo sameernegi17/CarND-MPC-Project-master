@@ -77,7 +77,7 @@ int main() {
     // The 4 signifies a websocket message
     // The 2 signifies a websocket event
     string sdata = string(data).substr(0, length);
-    cout << sdata << endl;
+    //cout << sdata << endl;
     if (sdata.size() > 2 && sdata[0] == '4' && sdata[1] == '2') {
       string s = hasData(sdata);
       if (s != "") {
@@ -192,7 +192,7 @@ int main() {
 
 
           auto msg = "42[\"steer\"," + msgJson.dump() + "]";
-          std::cout << msg << std::endl;
+          //std::cout << msg << std::endl;
           // Latency
           // The purpose is to mimic real driving conditions where
           // the car does actuate the commands instantly.
@@ -228,20 +228,20 @@ int main() {
   });
 
   h.onConnection([&h](uWS::WebSocket<uWS::SERVER> ws, uWS::HttpRequest req) {
-    std::cout << "Connected!!!" << std::endl;
+    //std::cout << "Connected!!!" << std::endl;
   });
 
   h.onDisconnection([&h](uWS::WebSocket<uWS::SERVER> ws, int code,
                          char *message, size_t length) {
     ws.close();
-    std::cout << "Disconnected" << std::endl;
+    //std::cout << "Disconnected" << std::endl;
   });
 
   int port = 4567;
   if (h.listen(port)) {
-    std::cout << "Listening to port " << port << std::endl;
+    //std::cout << "Listening to port " << port << std::endl;
   } else {
-    std::cerr << "Failed to listen to port" << std::endl;
+    //std::cerr << "Failed to listen to port" << std::endl;
     return -1;
   }
   h.run();
